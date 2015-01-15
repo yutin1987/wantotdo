@@ -3,12 +3,12 @@
 var $ = window.$;
 function onLogin(response) {
   if ('connected' === response.status) {
-    FB.ui({
-      method  : 'apprequests',
-      message : 'A request especially for one person.', 
-      to: '1234', 
-      max_recipients:1,
-      data: 'tracking information for the user'
+    FB.ui({ method: 'apprequests',
+        message: 'Here is a new Requests dialog...'
+    }, function (response) {
+        if (response && response.request_ids) {
+            console.log(response.request_ids);
+        } 
     });
     // FB.api('/me?fields=first_name', function(data) {
     //   var welcomeBlock = document.getElementById('fb-welcome');
