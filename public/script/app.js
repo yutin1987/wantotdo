@@ -2,12 +2,13 @@
 
 // Place following code after FB.init call.
 
+var $ = window.$;
 function onLogin(response) {
   if ('connected' === response.status) {
-    FB.api('/me?fields=first_name', function(data) {
-      var welcomeBlock = document.getElementById('fb-welcome');
-      welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
-    });
+    // FB.api('/me?fields=first_name', function(data) {
+    //   var welcomeBlock = document.getElementById('fb-welcome');
+    //   welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
+    // });
   }
 }
 
@@ -22,4 +23,15 @@ FB.getLoginStatus(function(response) {
       onLogin(response);
     }, {scope: 'user_friends, email, publish_actions'});
   }
+});
+
+
+$(function(){
+  $("canvas").drawImage({
+    source: 'img/background.jpg',
+    x: 0, y: 0,
+    width: 640,
+    height: 426,
+    fromCenter: false
+  });
 });
