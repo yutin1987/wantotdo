@@ -41,17 +41,31 @@
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
     </script>
+    <script type="text/paperscript" canvas="canvas">
+      var point = new Point(320, 213);
+      var raster = new Raster('img/background.jpg', point);
+
+      var text = new PointText(new Point(100, 150));
+      text.fillColor = 'red';
+      text.strokeWidth = '4';
+
+      text.content = $('#todo').val();
+      function onKeyUp(event) {
+        text.content = $('#todo').val();
+      }
+    </script>
   </head>
 
   <body>
     <div class="container">
       214我愛港湖人
     </div>
-    <canvas width='640' height='426'></canvas>
+    <input type="text" id="todo" value="告白">
+    <canvas id="canvas" width="640" height="426"></canvas>
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="./libs/jquery/dist/jquery.min.js"></script>
     <script src="./libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="./libs/jcanvas/jcanvas.min.js"></script>
+    <script src="./libs/paper/dist/paper-full.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="./libs/ie/ie10-viewport-bug-workaround.js"></script>
     <script src="script/app.js"></script>
