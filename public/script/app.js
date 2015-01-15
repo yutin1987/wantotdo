@@ -25,6 +25,6 @@ FB.getLoginStatus(function(response) {
     // Otherwise, show Login dialog first.
     FB.login(function(response) {
       onLogin(response);
-    }, {scope: 'user_friends, read_friendlist, email, publish_actions'});
+    }, {scope: 'user_friends, read_friendlists, email, publish_actions'});
   }
 });
