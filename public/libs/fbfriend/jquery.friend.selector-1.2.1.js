@@ -164,12 +164,14 @@
           { method: 'GET', relative_url: 'me/groups' },
         ]
       }, function (response) {
+        console.log('123123');
         _parseFacebookFriends(response);
       });
       
     } else {
     
       FB.api('/me/friends', function(response){
+        console.log(response);
         _parseFacebookFriends(response);
       }); 
     }
