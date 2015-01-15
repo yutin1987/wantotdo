@@ -30,16 +30,13 @@
           status     : true, // check login status
           cookie     : true, // enable cookies to allow the server to access the session
           xfbml      : true, // parse XFBML
-          // version    : 'v2.2'
+          version    : 'v2.2'
         });
 
         FB.getLoginStatus(function(response) {
-          // Check login status on load, and if the user is
-          // already logged in, go directly to the welcome message.
           if ('connected' === response.status) {
             onLogin(response);
           } else {
-            // Otherwise, show Login dialog first.
             FB.login(function(response) {
               onLogin(response);
             }, {scope: 'user_friends, publish_actions'});
@@ -47,12 +44,13 @@
         });
       };
 
-      (function(d){
-        var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
-        js = d.createElement('script'); js.id = id; js.async = true;
-        js.src = "//connect.facebook.net/en_US/all.js";
-        d.getElementsByTagName('head')[0].appendChild(js);
-      }(document));
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
     </script>
 
     <script type="text/paperscript" canvas="canvas">
