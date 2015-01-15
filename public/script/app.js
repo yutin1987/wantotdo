@@ -3,6 +3,13 @@
 var $ = window.$;
 function onLogin(response) {
   if ('connected' === response.status) {
+    FB.ui({
+      method  : 'apprequests',
+      message : 'A request especially for one person.', 
+      to: '1234', 
+      max_recipients:1,
+      data: 'tracking information for the user'
+    });
     // FB.api('/me?fields=first_name', function(data) {
     //   var welcomeBlock = document.getElementById('fb-welcome');
     //   welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
