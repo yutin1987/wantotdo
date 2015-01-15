@@ -3,12 +3,11 @@
 var $ = window.$;
 function onLogin(response) {
   if ('connected' === response.status) {
-    FB.ui({ method: 'apprequests',
-        message: 'Here is a new Requests dialog...'
-    }, function (response) {
-        if (response && response.request_ids) {
-            console.log(response.request_ids);
-        } 
+    $(".friendDialog").fSelector({
+      onSubmit: function(response){
+        // example response usage
+        alert(response);
+      }
     });
     // FB.api('/me?fields=first_name', function(data) {
     //   var welcomeBlock = document.getElementById('fb-welcome');
