@@ -27,7 +27,9 @@
       window.fbAsyncInit = function() {
         FB.init({
           appId      : '888195151232497',
-          xfbml      : true,
+          status      : true, // check login status
+          cookie      : true, // enable cookies to allow the server to access the session
+          xfbml       : true, // parse XFBML
           version    : 'v2.2'
         });
 
